@@ -82,7 +82,6 @@
           {/block}
 
           <div class="product-information">
-              Hello World!
             {block name='product_description_short'}
               <div id="product-description-short-{$product.id}" class="product-description" itemprop="description">{$product.description_short nofilter}</div>
             {/block}
@@ -154,6 +153,18 @@
                          {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
+
+                <li class="nav-item">
+                   <a
+                     class="nav-link"
+                     data-toggle="tab"
+                     href="#product-pictures"
+                     role="tab"
+                     aria-controls="description"
+                    >Ürün fotoğrafları</a>
+                </li>
+
+
                   <li class="nav-item">
                     <a
                       class="nav-link{if !$product.description} active{/if}"
@@ -191,6 +202,12 @@
                      <div class="product-description">{$product.description nofilter}</div>
                    {/block}
                  </div>
+
+                    <div class="tab-pane fade in{if $product.description} active{/if}" id="product-pictures" role="tabpanel">
+                        {block name='product_description'}
+                            <div class="product-description">{$product.description nofilter}</div>
+                        {/block}
+                    </div>
 
                  {block name='product_details'}
                    {include file='catalog/_partials/product-details.tpl'}
