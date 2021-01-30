@@ -82,6 +82,7 @@
           {/block}
 
           <div class="product-information">
+              Hello World!
             {block name='product_description_short'}
               <div id="product-description-short-{$product.id}" class="product-description" itemprop="description">{$product.description_short nofilter}</div>
             {/block}
