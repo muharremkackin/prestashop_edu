@@ -153,6 +153,27 @@
                          {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
+
+                <li class="nav-item">
+                   <a
+                     class="nav-link"
+                     data-toggle="tab"
+                     href="#product-pictures"
+                     role="tab"
+                     aria-controls="description"
+                    >Ürün fotoğrafları</a>
+                </li>
+
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link{if !$product.description} active{/if}"
+                      data-toggle="tab"
+                      href="#product-details"
+                      role="tab"
+                      aria-controls="product-details"
+                      {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
+                  </li>
                   {if $product.attachments}
                     <li class="nav-item">
                       <a
@@ -163,15 +184,6 @@
                         aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
                     </li>
                   {/if}
-                    <li class="nav-item">
-                        <a
-                                class="nav-link{if !$product.description} active{/if}"
-                                data-toggle="tab"
-                                href="#product-details"
-                                role="tab"
-                                aria-controls="product-details"
-                                {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
-                    </li>
                   {foreach from=$product.extraContent item=extra key=extraKey}
                     <li class="nav-item">
                       <a
