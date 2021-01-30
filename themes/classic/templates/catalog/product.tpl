@@ -204,9 +204,22 @@
                  </div>
 
                     <div class="tab-pane fade in{if $product.description} active{/if}" id="product-pictures" role="tabpanel">
-                        {block name='product_description'}
-                            <div class="product-description">{$product.description nofilter}</div>
-                        {/block}
+                        <ul class="product-images js-qv-product-images">
+                            {foreach from=$product.images item=image}
+                                <li class="thumb-container">
+                                    <img
+                                            class="thumb js-thumb {if $image.id_image == $product.default_image.id_image} selected {/if}"
+                                            data-image-medium-src="{$image.bySize.medium_default.url}"
+                                            data-image-large-src="{$image.bySize.large_default.url}"
+                                            src="{$image.bySize.home_default.url}"
+                                            alt="{$image.legend}"
+                                            title="{$image.legend}"
+                                            width="100"
+                                            itemprop="image"
+                                    >
+                                </li>
+                            {/foreach}
+                        </ul>
                     </div>
 
                  {block name='product_details'}
